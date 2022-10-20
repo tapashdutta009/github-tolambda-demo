@@ -10,7 +10,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: demo.handler
-      Runtime: nodejs14.x
+      Runtime: nodejs12.x
       MemorySize: 512
       FunctionName: demo
       Timeout: 7
