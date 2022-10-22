@@ -5,6 +5,7 @@ exports.handler = async (event, context) => {
     console.log('Context', context);
     const newToken = uuidv4();
     console.log('uuid token', newToken);
+    
     return {
         statusCode: 200,
         message: 'Successful'
