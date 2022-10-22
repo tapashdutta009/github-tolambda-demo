@@ -1,0 +1,19 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      nodejs: 12
+  build:
+    commands:
+      - npm install
+      - npm run lint
+      - npm audit --audit-level=high
+      - export BUCKET=demo-new-build-artifacts
+      - aws cloudformation package --template-file template.yml --s3-bucket $BUCKET --output-template-file outputtemplate.yml
+artifacts:
+  type: zip
+  files:
+    - template.yml
+    - outputtemplate.yml
+    - node_modules/**/*
+    - index.js
